@@ -1,0 +1,32 @@
+{
+    "id": "FLOWS/rds/executesql",
+    "lambda": "lambda-arn",
+    "role": "iam-arn",
+    "input": {
+        "examples": {
+            "sample1": {
+              "awsSecretStoreArn": "arn:aws:secretsmanager:eu-west-1:11111111111:secret:rds-db-credentials/cluster-XXXXX/admin-XXXXX",
+              "database": "db1",
+              "dbClusterOrInstanceArn": "arn:aws:rds:eu-west-1:111111111:cluster:XXXXX",
+              "schema": "schema1",
+              "sqlStatements":"select current-datetime()",
+              "account":{
+                "accessKey":"abc123",
+                "secretKey":"abc123"
+              }
+            }
+
+        }
+    },
+    "output": {
+        "examples": {
+            "result": {
+                "name": "value"
+            }
+        }
+    },
+    "type": "task",
+    "description": "runs the given sql against an RDS instance via RDS Data Service",
+    "icon": "https://flows.app/favicon.png",
+    "billing": "standard"
+}
